@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>intersection observer advanced</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playwrite+DK+Uloopet:wght@100..400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="intersector.js"></script>
+</head>
+<body>
+  <header data-header>
+    <nav>
+      <div class="header__logo">
+        <a href="#home">Hipster Shoppe</a>
+      </div>
+      <ul class="header__list">
+        <li>
+          <a href="#about" data-link>About</a>
+        </li>
+        <li>
+          <a href="#our-products" data-link>Our products</a>
+        </li>
+        <li>
+          <a href="#contact" data-link>Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section data-section="cool" id="home">
+      <div class="container grid">
+        <div class="section__img">
+          <img src="img/fixie.jpeg" />
+        </div>
+        <div class="section__content">
+          <h1>Hipster Shoppe</h1>
+          <p>Bespoke solarpunk ugh cardigan man bun schlitz williamsburg aesthetic keytar authentic forage farm-to-table adaptogen. Stumptown meh swag fingerstache.</p>
+          <p>Knausgaard butcher whatever, deep v selvage pour-over kombucha try-hard photo booth blue bottle literally. Tacos authentic vape pok pok, neutral milk hotel viral before they sold out occupy readymade cold-pressed. Food truck kickstarter cred portland poke.</p>
+        </div>
+      </div>
+    </section>
+    <section data-section="neon" id="about">
+      <div class="container grid">
+        <div class="section__img">
+          <img src="img/people.jpg" />
+        </div>
+        <div class="section__content">
+          <h2>About us</h2>
+          <p>Narwhal subway tile polaroid, etsy snackwave iceland kickstarter before they sold out blog chillwave chambray neutra 3 wolf moon. Cliche seitan occupy jianbing edison bulb master cleanse pabst paleo messenger bag air plant JOMO tonx Brooklyn kitsch letterpress.</p>
+          <p>Cred stumptown bruh pour-over post-ironic distillery tattooed, umami schlitz. Distillery single-origin coffee pickled flannel bushwick palo santo.</p>
+          <p>Pour-over irony heirloom four loko tumeric. Neutral milk hotel iceland la croix cronut single-origin coffee gentrify portland. Bodega boys af freegan, prism gatekeep vice vape plaid raw denim.</p>
+        </div>
+      </div>
+    </section>
+    <section data-section="tropical" id="our-products">
+      <div class="container grid">
+        <div class="section__img">
+          <img src="img/coffee.jpeg" />
+        </div>
+        <div class="section__content">
+          <h2>Our products</h2>
+          <p>Chartreuse wayfarers sus thundercats subway tile live-edge cronut af. XOXO hell of bodega boys, health goth copper mug hashtag lomo wolf cloud bread taiyaki.</p>
+          <p>Marxism tilde hashtag offal crucifix. Jean shorts thundercats williamsburg hammock photo booth, banjo schlitz tbh raw denim hexagon quinoa. Mustache YOLO butcher stumptown cornhole salvia PBR&B 90's neutra waistcoat air plant. Ugh green juice ramps viral locavore semiotics seitan.</p>
+          <p>Aesthetic chambray marxism, semiotics migas pitchfork cold-pressed.</p>
+        </div>
+      </div>
+    </section>
+    <section data-section="dark" id="contact">
+      <div class="container grid">
+        <div class="section__img">
+          <img src="img/contact.jpeg" />
+        </div>
+        <div class="section__content-col">
+          <h2 data-section-title>Get in touch</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

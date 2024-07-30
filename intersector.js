@@ -1,16 +1,22 @@
+history.scrollRestoration = "manual";
+
 // We need to track and update the header, the nav links, and the page sections
 const header = document.querySelector('[data-header]')
 const sections = [...document.querySelectorAll('[data-section]')]
 const headerLinks = [...document.querySelectorAll('[data-link]')]
+const vid =document.querySelector('video')
+const thresholds = sections.map((section, index) => {
+    return index === 3 ? 0.5 : 0;
+});
+
 
 // Track and compare the last and current scroll direction
 let prevYPosition = 0
 let direction = 'up'
 
-
 const options = {
 	rootMargin: `${header.offsetHeight * -1}px`,
-	threshold: 0
+	threshold: thresholds
 }
 
 // Find and track the next target section when scrolling
@@ -18,16 +24,16 @@ const getTargetSection = (entry) => {
 	const index = sections.findIndex((section) => section == entry.target)
 
 	if (index >= sections.length - 1) {
-	 return entry.target
+		return entry.target
 	} else {
-	 return sections[index + 1]
+		return sections[index + 1]
 	}
 }
 
 // Update the global colour theme using a data attribute
-const updateColors = (target) => {
+const updateColor = (target) => {
 	const theme = target.dataset.section
-	header.setAttribute('data-theme', theme)
+	target.setAttribute('data-theme', theme)
 }
 
 // Check whether or not we need to update the current target
@@ -41,6 +47,31 @@ const shouldUpdate = (entry) => {
 	}
 
 	return false
+}
+
+// Add .start when clicked
+if (!sections[0].classList.contains('start')) {
+	window.addEventListener('click', function() {
+		sections[0].classList.add('start')
+	})
+}
+
+// Add or remove class when in view
+const updateStyle = (entries) => {
+	entries.forEach(entry => {
+		if (entry.isIntersecting) {
+			entry.target.classList.add('visible');
+			if (sections[3].classList.contains('visible')) {
+				vid.play();
+			}
+		} else {
+			entry.target.classList.remove('visible');
+			if (!sections[3].classList.contains('visible')) {
+				vid.pause();
+			}
+		}
+	});
+	
 }
 
 // Update the nav marker by:
@@ -79,17 +110,18 @@ const onIntersect = (entries) => {
 		const target = direction === 'down' ? getTargetSection(entry) : entry.target
 
 		if (shouldUpdate(entry)) {
-			updateColors(target)
+			updateColor(target)
 			updateMarker(target)
 		}
+		updateStyle(entries)
 	})
 }
 
 // Only update the nav marker after the new target has finished updating (when the colour theme has been changed and the scrolling has finished)
 document.addEventListener('readystatechange', e => {
-  if (e.target.readyState === 'complete') {
+if (e.target.readyState === 'complete') {
     updateMarker(sections[0])
-  }
+}
 })
 
 // Create our observer instance and pass in the sections to watch
